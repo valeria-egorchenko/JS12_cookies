@@ -24,18 +24,23 @@
       document.getElementById("name-value").innerHTML = myCookieUtil.get("cname"); 
       document.getElementById("age-value").innerHTML = myCookieUtil.get("age"); 
       document.getElementById("grade-value").innerHTML = myCookieUtil.get("grade"); 
- 
-      myEventUtil.addHandler(document.getElementById("delete-btn"), "click", function () { 
-        // Удаление cookie-файлов 
-        myCookieUtil.unset("cname"); 
-        myCookieUtil.unset("age"); 
-        myCookieUtil.unset("grade"); 
-      }); 
-      
-      // Запись cookie-файлов с ФИО студента, возрастом и оценкой 
+    }); 
+
+    myEventUtil.addHandler(document.getElementById("delete-btn"), "click", function () { 
+      // Удаление cookie-файлов 
+      myCookieUtil.unset("cname"); 
+      myCookieUtil.unset("age"); 
+      myCookieUtil.unset("grade"); 
+
+      // Запись cookie-файлов с ФИО студента, возрастом и оценкой после их удаления
       myCookieUtil.set("cname", "Егорченко Валерия Сергеевна"); 
       myCookieUtil.set("age", "27"); 
       myCookieUtil.set("grade", "10"); 
+
+      // Обновление значений на странице
+      document.getElementById("name-value").innerHTML = myCookieUtil.get("cname"); 
+      document.getElementById("age-value").innerHTML = myCookieUtil.get("age"); 
+      document.getElementById("grade-value").innerHTML = myCookieUtil.get("grade"); 
     }); 
   </script> 
 </body>
