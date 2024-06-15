@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index75</title>
+  <script type="text/javascript" src="js/myCookieUtil.js"></script>
+  <script type="text/javascript" src="js/myEventUtil.js"></script>
+</head>
+<body>
+  <p>ФИО студента: <span id="name-value">(none)</span><br>
+    Возраст: <span id="age-value">(none)</span><br>
+    Оценка за экзамен: <span id="grade-value">(none)</span></p>
+  <input type="button" value="Удалить файлы cookie" id="delete-btn" />
+  <p>Обновите страницу в браузере, чтобы увидеть значения. Нажмите кнопку &quot; Удалить файлы cookie&quot; для их удаления.</p>
+
+  <script type="text/javascript">
+    myEventUtil.addHandler(window, "load", function () {
+        document.getElementById("name-value").innerHTML = myCookieUtil.get("name");
+        document.getElementById("age-value").innerHTML = myCookieUtil.get("age");
+        document.getElementById("grade-value").innerHTML = myCookieUtil.get("grade");
+
+        myEventUtil.addHandler(document.getElementById("delete-btn"), "click", function () {          
+          myCookieUtil.unset("name");
+          myCookieUtil.unset("age");
+          myCookieUtil.unset("grade");
+        });
+        
+        myCookieUtil.set("name", "Егорченко Валерия Сергеевна");
+        myCookieUtil.set("age", "27");
+        myCookieUtil.set("grade", "10");
+      });
+
+    </script>
+</body>
+</html>
